@@ -14,10 +14,11 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
       - run: pip install -r requirements.txt
-      - run: day="$(date +"%Y-%m-%d_T%H").json"; scrapy runspider MonkeypoxSpider.py -O $day
+      - run: day="data/$(date +"%Y-%m-%d_T%H").json"; scrapy runspider MonkeypoxSpider.py -O $day
       - name: Commit report
         run: |
           git config --global user.name 'kaftand'
           git config --global user.email 'kaftand@users.noreply.github.com'
-          git commit -am "Automated report"
+          git add $day
+          git commit -m "Automated report"
           git push
