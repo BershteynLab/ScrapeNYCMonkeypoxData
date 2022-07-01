@@ -3,10 +3,10 @@ on:
   schedule:
     - cron: "59 4,16 * * *"
   workflow_dispatch:
-      tags:
-        description: 'ignore_run'
-        required: false 
-        type: boolean
+    tags:
+      description: 'ignore_run'
+      required: false 
+      type: boolean
 jobs:
   Build-Docs-For-Package:
     runs-on: ubuntu-latest
