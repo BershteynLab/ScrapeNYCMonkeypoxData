@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v3
       - run: pip install -r requirements.txt
       - run: day="data/$(date +"%Y-%m-%d_T%H").json"; scrapy runspider MonkeypoxSpider.py -O $day
+      - run: python merge_data.py
       - name: Commit report
         run: |
           git config --global user.name 'kaftand'
