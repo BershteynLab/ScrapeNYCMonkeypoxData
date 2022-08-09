@@ -1,7 +1,5 @@
 name: ScrapeNYC
 on: 
-  schedule:
-    - cron: "59 4,16 * * *"
   workflow_dispatch:
 jobs:
   Build-Docs-For-Package:
